@@ -570,11 +570,11 @@ textarea { resize: vertical; min-height: 120px; }
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .hero .container { grid-template-columns: 1fr; }
-  .hero-art { max-width: 420px; margin: 0 auto; }
+  .hero-art { width: min(92%, 460px); max-width: 100%; margin: 0 auto; }
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: repeat(3, 1fr); }
   .split, .split.reverse { grid-template-columns: 1fr; }
-  .split-media, .split.reverse .split-media { order: 0; max-width: 420px; margin: 0 auto; }
+  .split-media, .split.reverse .split-media { order: 0; width: min(92%, 460px); max-width: 100%; margin: 0 auto; }
   .contact-wrap { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -601,6 +601,29 @@ textarea { resize: vertical; min-height: 120px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   section { padding: 56px 0; }
+
+  /* Scale up the animated graphics so they read clearly on phones */
+  .hero-art, .split-media, .split.reverse .split-media { width: 100%; }
+  .browser-mock, .design-graphic .browser-mock { width: 88%; }
+  .browser-bar { padding: 14px 16px; }
+  .browser-bar .dot { width: 11px; height: 11px; }
+  .browser-body { padding: 26px 22px 30px; }
+  .skeleton-title { height: 17px; margin-bottom: 16px; }
+  .skeleton-line { height: 11px; margin-bottom: 10px; }
+  .skeleton-line.short { margin-bottom: 22px; }
+  .skeleton-block { height: 76px; }
+  .cursor-dot { width: 16px; height: 16px; box-shadow: 0 0 0 6px rgba(49,79,216,0.18); }
+
+  .tri-1, .tri-4 { width: 34px; height: 34px; }
+  .tri-2, .tri-6 { width: 26px; height: 26px; }
+  .tri-3 { width: 36px; height: 36px; }
+  .tri-5 { width: 20px; height: 20px; }
+
+  .ig-node { font-size: 1.5rem; max-width: 104px; }
+  .ig-node small { display: block; font-size: 0.56rem; }
+  .ig-core { font-size: 1.9rem; max-width: 108px; }
+  .blob-a { width: 150px; height: 150px; }
+  .blob-b { width: 130px; height: 130px; }
 }
 
 /* ============================
@@ -806,7 +829,3 @@ textarea { resize: vertical; min-height: 120px; }
   z-index: 2;
 }
 
-@media (max-width: 680px) {
-  .ig-node { font-size: 1.1rem; }
-  .ig-node small { display: none; }
-}
