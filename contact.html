@@ -46,11 +46,17 @@
         <div id="form-success"></div>
 
         <!--
-          This form is Formspree-ready: create a free form at https://formspree.io,
-          then replace YOUR_FORM_ID below with the ID Formspree gives you.
-          Until then, the form will show a message pointing visitors to email you directly.
+          This form uses Netlify Forms (site is hosted on Netlify). Netlify's build
+          system auto-detects it via the name + data-netlify attributes below, no
+          extra account or ID needed. After deploying, go to the Netlify dashboard:
+          Site settings > Forms > Notifications > Add notification > Email notification,
+          and set it to jramos@nextjenresults.com so submissions land in that inbox.
         -->
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden-field" style="position:absolute; left:-9999px;">
+            <label>Leave this field blank: <input name="bot-field"></label>
+          </p>
           <div class="form-row">
             <div>
               <label for="name">Full Name</label>

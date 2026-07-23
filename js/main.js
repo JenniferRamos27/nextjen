@@ -53,23 +53,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Contact form handling (Formspree-ready)
+  // Contact form handling (Netlify Forms, submitted via AJAX)
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
-      // If the form action still contains the placeholder, don't attempt a real submit.
-      var action = form.getAttribute('action') || '';
-      if (action.indexOf('YOUR_FORM_ID') !== -1) {
-        e.preventDefault();
-        var success = document.getElementById('form-success');
-        if (success) {
-          success.style.display = 'block';
-          success.textContent = "Thanks! This form isn't fully connected yet — please try again shortly, or connect it to Formspree (see comment in contact.html).";
-          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        return;
-      }
-      // Otherwise let it submit normally to Formspree, then show a friendly message on return.
+      e.preventDefault();
+      var success = document.getElementById('form-success');
+      var formData = new FormData(form);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(function () {
+          form.reset();
+          if (success) {
+            success.style.display = 'block';
+            success.textContent = "Thanks! Your message has been sent — we'll be in touch within 1–2 business days.";
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        })
+        .catch(function () {
+          if (success) {
+            success.style.display = 'block';
+            success.textContent = "Something went wrong sending your message. Please try again, or email jramos@nextjenresults.com directly.";
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
     });
   }
 });
