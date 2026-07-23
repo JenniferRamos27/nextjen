@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var success = document.getElementById('form-success');
         if (success) {
           success.style.display = 'block';
-          success.textContent = "Form isn't connected yet — email jramos@nextjenresults.com directly, or connect this form to Formspree (see comment in contact.html).";
+          success.textContent = "Thanks! This form isn't fully connected yet — please try again shortly, or connect it to Formspree (see comment in contact.html).";
           success.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         return;

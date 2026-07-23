@@ -92,6 +92,21 @@ img { max-width: 100%; display: block; }
 }
 .btn-primary:hover { background: #2740b8; color: var(--brand-white); }
 
+.btn-nav-cta {
+  background: var(--brand-blue);
+  color: var(--brand-white);
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  line-height: 1.2;
+  box-shadow: 0 8px 20px rgba(49, 79, 216, 0.25);
+}
+.btn-nav-cta:hover {
+  background: var(--brand-yellow);
+  color: var(--brand-dark);
+  box-shadow: 0 8px 20px rgba(255, 217, 60, 0.35);
+}
+
 .btn-accent {
   background: var(--brand-yellow);
   color: var(--brand-dark);
